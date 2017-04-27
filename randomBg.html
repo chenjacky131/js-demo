@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var body = document.getElementsByTagName('body')[0];
+			var rR=rG=rB=0;
+			function randomRange(from,to){
+				return Math.floor(Math.random()*(to-from+1)+from)
+			}			
+			setInterval(function(){
+				rR = randomRange(0,255);
+				rG = randomRange(0,255);
+				rB = randomRange(0,255);
+				body.style.backgroundColor = "rgb("+rR+","+rG+","+rB+")";
+			},1000);
+		</script>		
+	</body>
+</html>
