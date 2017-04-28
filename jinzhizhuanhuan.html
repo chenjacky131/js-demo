@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>进制转换器</title>
+	</head>
+	<body>
+		<div class="part1">
+			<h1>10进制转为2，8，16进制</h1>
+			<input type="text" id="n1" placeholder="输入要转换的10进制数" />
+			<button onclick="_10To2_8_16(2)">转为2进制</button>
+			<button onclick="_10To2_8_16(8)">转为8进制</button>
+			<button onclick="_10To2_8_16(16)">转为16进制</button>
+			<p>转换结果：<span id="part1Result"></span></p>
+		</div>
+		<div class="part2">
+			<h1>2,8,16进制转换为10进制<br />二进制0b(二进制数)，八进制0(八进制数)，十六进制0x(十六进制数)</h1>
+			<input type="text" id="n2" placeholder="输入要转换的2，8，16进制数" />
+			<button onclick="_2_8_16To10()">转为10进制</button>
+			<p>转换结果: <span id="part2Result"></span></p>
+		</div>
+		<script type="text/javascript">					
+			function _10To2_8_16(j){//j要转换的进制(利用数字toString方法加基数实现)
+				var iN = document.getElementById('n1').value;// 输入的值
+				var oResult = document.getElementById('part1Result'); // 显示结果的DOM
+				switch (j){
+					case 2:oResult.innerHTML = Number(iN).toString(j);break;
+					case 8:oResult.innerHTML ="0" + Number(iN).toString(j);break;
+					case 16:oResult.innerHTML ="0x" + Number(iN).toString(j);break;
+				}
+			}
+			function _2_8_16To10(){
+				var iN2 = document.getElementById('n2').value;// 输入的值
+				var oResult2 = document.getElementById('part2Result'); // 显示结果的DOM	
+				if(iN2[0]==0&&iN2[1].toUpperCase!='X'&&iN2[1].toUpperCase!='B'){
+					for(var i =1;i<iN2.length;i++){//第一位已经是0了，可以不用判断是否大于7
+						if(iN2[i]>7){
+							oResult2.innerHTML = '不是有效的八进制数';return;//跳出函数
+						}
+					}
+					oResult2.innerHTML = parseInt(iN2,8);return;//跳出函数
+				}
+				oResult2.innerHTML =Number(iN2);// 利用Number自动把各种进制转为10进制说
+			}
+		</script>
+	</body>
+</html>
