@@ -23,8 +23,8 @@
 			function _10To2_8_16(j){//j要转换的进制(利用数字toString方法加基数实现)
 				var iN = document.getElementById('n1').value;// 输入的值
 				var oResult = document.getElementById('part1Result'); // 显示结果的DOM
-				switch (j){
-					case 2:oResult.innerHTML = Number(iN).toString(j);break;
+				switch (j){// 利用Number的toString(基数)方法将十进制数转为对应进制
+					case 2:oResult.innerHTML ="0b" + Number(iN).toString(j);break;
 					case 8:oResult.innerHTML ="0" + Number(iN).toString(j);break;
 					case 16:oResult.innerHTML ="0x" + Number(iN).toString(j);break;
 				}
@@ -32,10 +32,9 @@
 			function _2_8_16To10(){
 				var iN2 = document.getElementById('n2').value;// 输入的值
 				var oResult2 = document.getElementById('part2Result'); // 显示结果的DOM	
-				var a = (iN2[1]).toUpperCase();
-				if(iN2[0] == 0 && iN2[1].toUpperCase() != 'X' && iN2[1].toUpperCase() != 'B'){
+				if(iN2[0] == 0 && iN2[1].toUpperCase() != 'X' && iN2[1].toUpperCase() != 'B'){// 判断以0开头，并且第二位不等于x或b与十六进制和二进制区分开
 					for(var i =1;i<iN2.length;i++){//第一位已经是0了，可以不用判断是否大于7
-						if(iN2[i]>7){
+						if(iN2[i]>7){// 判断是否是有效的八进制数
 							oResult2.innerHTML = '不是有效的八进制数';return;//跳出函数
 						}
 					}
