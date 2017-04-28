@@ -20,7 +20,7 @@
 			<p>转换结果: <span id="part2Result"></span></p>
 		</div>
 		<script type="text/javascript">					
-			function _10To2_8_16(j){//j要转换的进制(利用数字toString方法加基数实现)
+			function _10To2_8_16(j){//j要转换的进制(利用数字toString方法加基数实现)：：后来查阅资料，发现有一个字符串方法直接可以parseInt(n,进制)直接可以转!--尴尬。
 				var iN = document.getElementById('n1').value;// 输入的值
 				var oResult = document.getElementById('part1Result'); // 显示结果的DOM
 				switch (j){// 利用Number的toString(基数)方法将十进制数转为对应进制
